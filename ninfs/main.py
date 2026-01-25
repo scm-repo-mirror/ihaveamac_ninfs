@@ -23,8 +23,8 @@ macos = platform == 'darwin'
 
 python_cmd = 'py -3' if windows else 'python3'
 
-if hexversion < 0x030800F0:
-    exit('Python {0[0]}.{0[1]}.{0[2]} is not supported. Please use Python 3.8.0 or later.'.format(version_info))
+if hexversion < 0x030c00F0:
+    exit('Python {0[0]}.{0[1]}.{0[2]} is not supported. Please use Python 3.12 or later.'.format(version_info))
 
 
 def print_version():

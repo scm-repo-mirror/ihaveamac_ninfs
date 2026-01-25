@@ -63,7 +63,7 @@ app = BUNDLE(coll,
              icon='build/AppIcon.icns',
              bundle_identifier='net.ihaveahax.ninfs',
              info_plist={
-                 'LSMinimumSystemVersion': '10.12.6',
+                 'LSMinimumSystemVersion': '12.0',
                  #'NSRequiresAquaSystemAppearance': True,
                  #'NSHighResolutionCapable': True,
                  'CFBundleShortVersionString': '2.0',

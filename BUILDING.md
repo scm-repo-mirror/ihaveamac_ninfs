@@ -1,13 +1,13 @@
-This is still being worked on (as of January 29, 2024).
+This is still being worked on (as of January 25, 2026).
 
 # Windows
 
 ## Standalone build
-This expects Python 3.8 32-bit to be installed.
+This expects Python 3.12 64-bit to be installed.
 
 Install the dependencies:
 ```batch
-py -3.8-32 -m pip install --user --upgrade "cx-Freeze>=6.15,<6.16" -r requirements.txt
+py -3.12-32 -m pip install --user --upgrade "cx-Freeze>=8.5,<8.6" -r requirements.txt
 ```
 
 Build the exe:
@@ -34,8 +34,8 @@ This needs Python built with universal2 to produce a build with a working GUI. A
 
 Set up a venv, activate it, and install the requirements:
 ```sh
-python3.11 -m venv venv311
-source venv311/bin/activate
+python3.12 -m venv venv312
+source venv312/bin/activate
 pip install --upgrade pyinstaller certifi -r requirements.txt
 ```
 

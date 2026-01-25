@@ -1,8 +1,6 @@
 # ninfs
 ninfs (formerly fuse-3ds) is a FUSE program to extract data from Nintendo game consoles. It works by presenting a virtual filesystem with the contents of your games, NAND, or SD card contents, and you can browse and copy out just the files that you need.
 
-Windows, macOS, and Linux are supported.
-
 <p align="center"><img src="https://github.com/ihaveamac/ninfs/raw/2.0/resources/cia-mount-mac.png" width="1032"></p>
 
 ## Supported types
@@ -54,10 +52,10 @@ SeedDB is checked in order of:
 * `~/.3ds/seeddb.bin`
 * `~/3ds/seeddb.bin`
 
-Python 3.8.0 or later is required.
+Python 3.12 or later is required.
 
 ### Windows
-Windows 10 or later is recommended. Windows 7 and 8.1 may continue to work until ninfs's dependencies stop working on it.
+Windows 10 or 11 is recommended. Windows 8.1 is the minimum but untested. Windows 7 or earlier are unsupported.
 
 #### Installer
 An installer is provided in [releases](https://github.com/ihaveamac/ninfs/releases). It includes both ninfs and WinFsp, which is installed if required.
@@ -66,7 +64,7 @@ An installer is provided in [releases](https://github.com/ihaveamac/ninfs/releas
 A standalone zip is also provided in [releases](https://github.com/ihaveamac/ninfs/releases). [WinFsp](https://winfsp.dev/rel/) must be installed separately.
 
 #### Install with existing Python
-* Install a version of [Python 3.8 or later](https://www.python.org/downloads/). The x86-64 version is preferred on 64-bit Windows.
+* Install a version of [Python 3.12 or later](https://www.python.org/downloads/). The x86-64 version is preferred on 64-bit Windows.
   * Python from the Microsoft Store is not recommended due to sandboxing restrictioons.
 * Install the latest version of [WinFsp](https://winfsp.dev/rel/).
 * Install ninfs with `py -3 -m pip install --upgrade https://github.com/ihaveamac/ninfs/archive/2.0.zip`
@@ -75,13 +73,13 @@ A standalone zip is also provided in [releases](https://github.com/ihaveamac/nin
 Official support for Windows on ARM will come [eventually](https://github.com/ihaveamac/ninfs/issues/91). In the meantime, running the x86 version has been tested and seems to work properly. Make sure to install the latest WinFSP version with ARM64 support.
 
 ### macOS
-Versions of macOS supported by Apple are highly recommended. macOS Sierra is the oldest version that should work. [macFUSE](https://osxfuse.github.io/) or [fuse-t](https://www.fuse-t.org) is required.
+Versions of macOS supported by Apple are highly recommended. macOS 12 Monterey is the oldest version that should work. [macFUSE](https://osxfuse.github.io/) or [fuse-t](https://www.fuse-t.org) is required.
 
 #### Standalone application
 A standalone build is provided in [releases](https://github.com/ihaveamac/ninfs/releases). macFUSE or fuse-t must still be installed separately. Releases are built for Intel and Apple Silicon, signed and notarized by Apple.
 
 #### Install with existing Python
-* Install a version of Python 3.8 or later. Various methods to use Python:
+* Install a version of Python 3.12 or later. Various methods to use Python:
   * [Installers from python.org](https://www.python.org/downloads/macos/).
   * Xcode or Command Line Tools (note: has a broken GUI)
   * [Homebrew](https://brew.sh)
@@ -95,14 +93,14 @@ A standalone build is provided in [releases](https://github.com/ihaveamac/ninfs/
 ninfs is available in the AUR: [normal](https://aur.archlinux.org/packages/ninfs/), [with gui](https://aur.archlinux.org/packages/ninfs-gui/), [git](https://aur.archlinux.org/packages/ninfs-git/), [git with gui](https://aur.archlinux.org/packages/ninfs-gui-git/)
 
 #### Other distributions
-* Recent distributions (e.g. Ubuntu 18.04 and later) should have Python 3.8.0 or later pre-installed, or included in its repositories. Refer to your distribution's documentation for details.
+* Recent distributions (e.g. Ubuntu 24.04 and later) should have Python 3.12 or later pre-installed, or included in its repositories. Refer to your distribution's documentation for details.
 * Most distributions should have libfuse enabled/installed by default. Use your package manager if it isn't.
 * Install ninfs with `python3 -m pip install --upgrade --user https://github.com/ihaveamac/ninfs/archive/2.0.zip`
   * `--user` is not needed if you are using a virtual environment.
 * You can add a desktop entry with `python3 -m ninfs --install-desktop-entry`. If you want to install to a location other than the default (`$XDG_DATA_HOME`), you can add another argument with a path like `/usr/local/share`.
 * To use the GUI, tkinter needs to be installed. On Debian-/Ubuntu-based systems this is `python3-tk`. On Fedora this is `python3-tkinter`.
 
-### Nix/NixOS
+#### Nix/NixOS
 A nix derivation is provided, tested on NixOS, other Linux distributions, and macOS.
 
 On macOS, macFUSE or fuse-t must be installed separately, as nixpkgs doesn't (and probably can't) package either.
@@ -110,6 +108,11 @@ On macOS, macFUSE or fuse-t must be installed separately, as nixpkgs doesn't (an
 With flakes to run the latest commit on main:
 * Use GUI: `nix run github:ihaveamac/ninfs`
 * Directly use mount (example with cia): `nix run github:ihaveamac/ninfs -- cia game.cia mountpoint`
+
+### Other operating systems
+Anything else is untested and may not work properly. Bug reports and/or patches for support are welcome. (If you can, please check if the issue is with ninfs or mfusepy.)
+
+ninfs is known not to work on FreeBSD: https://github.com/ihaveamac/ninfs/issues/107
 
 ## Usage
 ### Graphical user interface

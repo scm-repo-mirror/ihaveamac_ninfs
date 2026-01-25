@@ -89,7 +89,7 @@ Section "ninfs Application" SecInstall
 
   File "LICENSE.md"
   File "README.md"
-  File /r "build\exe.win32-3.8\"
+  File /r "build\exe.win32-3.12\"
 
   ;Store installation folder
   WriteRegStr HKCU "Software\ninfs" "" $INSTDIR

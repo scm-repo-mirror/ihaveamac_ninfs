@@ -11,6 +11,6 @@ mkdir %OUTDIR%
 copy LICENSE.md %OUTDIR%
 copy README.md %OUTDIR%
 
-xcopy /s /e /i /y build\exe.win32-3.8 %OUTDIR%
+xcopy /s /e /i /y build\exe.win32-3.12 %OUTDIR%
 
 py -m zipfile -c dist\ninfs-%VERSION%-win32.zip %OUTDIR%
